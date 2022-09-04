@@ -85,22 +85,12 @@ router.get("/blog/:post_id/", async (req, res) => {
 
     if (post_id) {
         try {
-            const username = decodeJWT(req.header("Authorization").split(" ")[1]);
-            if (!username) {
-                let post = await Post.findOne({ post_id: post_id, is_published: true }).select({ _id: 0, __v: 0 });
+            let post = await Post.findOne({post_id: post_id }).select({ _id: 0, __v: 0 });
                 if (post) {
                     res.status(200).send(post);
                 } else {
                     res.status(404).send({ msg: "Post not found!" });
                 }
-            } else {
-                let post = await Post.findOne({ username: username, post_id: post_id }).select({ _id: 0, __v: 0 });
-                if (post) {
-                    res.status(200).send(post);
-                } else {
-                    res.status(404).send({ msg: "Post not found!" });
-                }
-            }
         } catch (err) {
             return res.status(500).send({ msg: "Something went wrong!" });
         }

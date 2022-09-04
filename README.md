@@ -1,6 +1,6 @@
 # Blogging Website
 
-#Note:
+# Note:
 
 This blog portal is secure from security threats like NoSQL Injection, XSS, etc
 

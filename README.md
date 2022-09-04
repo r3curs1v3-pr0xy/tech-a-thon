@@ -1,8 +1,5 @@
 # Blogging Website
 
-# Note:
-
-This blog portal is secure from security threats like NoSQL Injection, XSS, etc
 
 A blog portal where user can write any kind of blog, while others can like and share the blog
 via a unique link.
